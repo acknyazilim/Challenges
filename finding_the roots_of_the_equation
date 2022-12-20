@@ -1,48 +1,44 @@
 
 /* Finding the roots of the equation shaped like ax^2+bx+c*/
-#include"stdio.h"
-#include"math.h"
-int main(){
-double a,b,c,r,k,S,M;
-double x1,x2;
-double delta, squareRoot;
+#include <stdio.h>
+#include <stdlib.h>
+#include "math.h"
 
-start:
-printf("Enter the a of the equation: ");
-scanf("%lf", &a);
-printf("Enter the b of the equation: ");
-scanf("%lf",&b);
-printf("Enter the c of the equation: ");
-scanf("%lf",&c);
+void calculate(float*n,float a,float b,float c)
+{
+    *n=(b*b)-(4*a*c);
+}
+void  calculate_squareroot(float *n1, float *n2, float delta,float a,float b,float c)
+{
 
-    delta=b*b-4*a*c;
-    squareRoot = sqrt(delta);
-    
-    x1=(-b+(squareRoot))/2*a;/*sqrt expression means rooting in math library */
-    x2=(-b-(squareRoot))/2*a;
-    if(delta<0)
-    {
-        printf("The equation cannot be solved try again...\n");
-        goto start;
-    }
-    else
-    {
-    printf("Square root of %.2lf = %.2lf \n", delta, squareRoot);
-    printf("Root of 1.inequality:%.2lf,Root of 2.inequality:%.2lf.\n",x1,x2);
-    }
-//
-//find the vertex of the equation ax^2+bx+c
+    *n1= (-b+sqrt(delta))/2*a;
+    *n2= (-b-sqrt(delta))/2*a;
+}
 
-r=-b/2*a;
-k=a*r*r+b*r+c;
-S=x1+x2;
-M=x1*x2;
+int main()
 
-
-printf("Vertex of the your equation: T(%.2lf,%.2lf).\n",r,k);
-printf("Equation is = f(x)=(x-%.2lf)^2+%.2lf\n",r,k);
-//or f(x)=(x^2-Sx+M)
-printf("f(x)=x^2-%.2lfx+%2.lf \n",S,M);
+{
+    float delta;
+    float squareroot1,squareroot2;
+     float a,b,c;
+    printf(" form of your equation must be  form ax^2+bx+c \n ");
+    printf("if you want to calculate your equation  correctly please first enter value of a\n second enter value of b end last enter the value of c");
+   
+    printf("plese enter value of a\n");
+    scanf("%f",&a);
+        printf("plese enter value of b\n");
+    scanf("%f",&b);
+        printf("plese enter value of c\n");
+    scanf("%f",&c);
+    calculate(&delta,a,b,c);
+    calculate_squareroot(&squareroot1,&squareroot2,delta,a,b,c);
+    printf("delta of your equation:%.2f\n",delta);
+    printf("squareroots of your equation:\n");
+    printf("%.2f and %.2f",squareroot1,squareroot2);
+   
+   
+   // example input a=1,b,=-1 amd c=-2
+    //squareroot1=2 and squareroot2=-1;
 
 
 return 0;

@@ -1,22 +1,20 @@
 // create a pointer
-#include "stdio.h"
-#include "stdlib.h"
-void swapMachine(int *a,int *b,int *c){
-    int d ;
-    d=*a;
-    *a=*b;
-    *b=*c;
-    *c=d;
-}
-int main()
+#include <stdio.h>
+#include <stdlib.h>
+
+void multiply(int *n,int *m,int *k)
 {
-    int a=10,b=11,c=12;
-    int *pa =&a;
-    int *pb =&b;
-    int *pc =&c;
-    printf("a : %d.......%d\nb : %d.......%d\nc : %d.......%d",*pa,pa,*pb,pb,*pc,pc);
-    swapMachine(pa,pb,pc);
-    printf("\na : %d.......%d\nb : %d.......%d\nc : %d.......%d",*pa,pa,*pb,pb,*pc,pc);
+    *n=*m**k;
+}
+
+int main()
+
+{
+    int a,b,c;
+ a=34;
+ b=2;
+multiply(&c,&a,&b);
+printf("%d",c);
 
     return 0;
 }
